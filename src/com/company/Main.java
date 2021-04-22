@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+
+
 public abstract class Main implements MouseListener {
 
     public static int column = 8;
@@ -39,14 +41,17 @@ public abstract class Main implements MouseListener {
 
     public static void main(String[] args) {
 
-        //Jframe uzstādījumi.
+        DB checkersDB = new DB();
+        checkersDB.connect(); //Connects to database "checkers"
+
+        //Jframe config
 
         JFrame checkers = new JFrame("Kursa Darbs");
         checkers.setSize(820, 950);
-        ImageIcon ckrsIcon = new ImageIcon("res/tick.png");
-        checkers.setIconImage(ckrsIcon.getImage());//nomaina ikonu
+        ImageIcon checkersIcon = new ImageIcon("res/tick.png");
+        checkers.setIconImage(checkersIcon.getImage());
 
-        //Izveido JPanel ar 64 panels specifiskās krāsās.
+        //board JPanel config with square JPanel configs
 
         JPanel board = new JPanel();
         board.setLayout(new GridLayout(row, column));
@@ -67,8 +72,10 @@ public abstract class Main implements MouseListener {
             }
         }
 
-        board.setBorder(BorderFactory.createLineBorder(Color.BLACK)); //Laukumam uzstāda malu, lai labāk uztvertu
+        board.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         board.setBounds(5, 100, 750, 750);
+
+        //Settings JPanel config
 
         JPanel settings = new JPanel();
         settings.setLayout(new FlowLayout());
