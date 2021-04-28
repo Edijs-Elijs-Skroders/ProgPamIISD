@@ -1,25 +1,33 @@
 package com.company;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DB {
 
-    private final String url = "jdbc:postgresql://localhost:5432/postgres";
+    private final String url = "jdbc:postgresql://localhost:5432/checkers";
     private final String user = "postgres";
     private final String pw = "checkers";
+    static Connection dbCon;
+    static Statement statement;
 
-    public Connection connect() {
-        Connection DBCon = null;
+
+    public void connect() {
         try {
-            DBCon = DriverManager.getConnection(url, user, pw);
+            dbCon = DriverManager.getConnection(url, user, pw);
             System.out.println("Connected to DB");
+            statement = dbCon.createStatement();
+
         }
         catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return DBCon;
+
     }
+
+    static void printItems(){
+        String query = "Select * from  \"Move\"";
+        //ResultSet rs = statement.executeQuery(query);
+    }
+
 
 }

@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 
 public abstract class Main implements MouseListener {
