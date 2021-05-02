@@ -1,5 +1,7 @@
 package com.company;
 
+import jdk.jfr.StackTrace;
+
 import java.sql.*;
 
 public class DB {
@@ -24,10 +26,37 @@ public class DB {
 
     }
 
-    static void printItems(){
-        String query = "Select * from  \"Move\"";
-        //ResultSet rs = statement.executeQuery(query);
+    static void printItems(int id){
+        try {
+            String query = "Select * from  \"Move\" where \"move_id\" = ?";
+            PreparedStatement ps = dbCon.prepareStatement(query);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                id = rs.getInt("move_id");
+                String val = rs.getString("destination");
+                String col = rs.getString("color");
+                System.out.println("#" + id + "Move:" + col + val);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
+    public static void addMove(int move_id, String color, String piece, String destination){
+        try {
+            String query = "Insert into  \"Move\" values(?,?,?,?)";
+            PreparedStatement ps = dbCon.prepareStatement(query);
+            ps.setInt(1,move_id);
+            ps.setString(2,color);
+            ps.setString(3,piece);
+            ps.setString(4,destination);
+            statement.executeUpdate(query);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
 }

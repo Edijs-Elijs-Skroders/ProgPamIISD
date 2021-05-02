@@ -44,6 +44,8 @@ public abstract class Main implements MouseListener {
 
         DB checkersDB = new DB();
         checkersDB.connect(); //Connects to database "checkers"
+        DB.printItems(1);
+        DB.addMove(3, "w","pawn","a4");
 
         //Jframe config
 
