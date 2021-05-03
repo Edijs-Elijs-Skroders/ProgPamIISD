@@ -2,15 +2,15 @@ package com.company;
 
 public class TileEmpty extends Tile{
 
-    Piece Piece;
+    Piece piece;
 
-    TileEmpty(int tileNr) {
+    TileEmpty(final int tileNr) {
         super(tileNr);
     }
 
     @Override
     public boolean isEmpty() {
-        return true;
+        return true; //true, because TimeEmpty class
     }
 
 

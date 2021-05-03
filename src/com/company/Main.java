@@ -8,44 +8,31 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 
-public abstract class Main implements MouseListener {
+public class Main {
 
     public static int column = 8;
     public static int row = 8;
+    public static String username = "";
+    public static int usernameMinLen = 2; //minimal username length.
+    public static int usernameMaxLen = 20; //maximum username length. Also set in DB
     public static Color clr1 = Color.WHITE;
     public static Color clr2 = new Color(74, 96, 134);
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
 
     public static void main(String[] args) {
 
+        int i = 0;
+        while (username == null || username.length() < usernameMinLen || username.length() > usernameMaxLen)
+            if (i ==0) {
+                username = JOptionPane.showInputDialog("Choose your name");
+                i+=1;
+            }
+            else{
+                username = JOptionPane.showInputDialog("Choose a different name(2-20 characters long)");
+            }
+
         DB checkersDB = new DB();
         checkersDB.connect(); //Connects to database "checkers"
-        DB.printItems(1);
-        DB.addMove(3, "w","pawn","a4");
 
         //Jframe config
 
@@ -53,6 +40,7 @@ public abstract class Main implements MouseListener {
         checkers.setSize(820, 950);
         ImageIcon checkersIcon = new ImageIcon("res/tick.png");
         checkers.setIconImage(checkersIcon.getImage());
+        checkers.setResizable(false);
 
         //board JPanel config with square JPanel configs
 

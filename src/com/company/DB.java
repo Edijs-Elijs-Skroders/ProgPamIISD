@@ -46,13 +46,13 @@ public class DB {
 
     public static void addMove(int move_id, String color, String piece, String destination){
         try {
-            String query = "Insert into  \"Move\" values(?,?,?,?)";
+            String query = "Insert into  \"Move\"(move_id,color,piece,destination) values (?,?,?,?)";
             PreparedStatement ps = dbCon.prepareStatement(query);
             ps.setInt(1,move_id);
             ps.setString(2,color);
             ps.setString(3,piece);
             ps.setString(4,destination);
-            statement.executeUpdate(query);
+            ps.executeUpdate();
         }
         catch (Exception e){
             e.printStackTrace();
