@@ -5,7 +5,7 @@ import java.util.Map;
 
 public abstract class Tile {
 
-    final int tileNr; //final- can be set only once here
+    final int tileNr; //final- can be set only once
 
     Tile(int tileNr){
         this.tileNr = tileNr;
@@ -27,10 +27,10 @@ public abstract class Tile {
         return tileEmptyMap;
     }
 
-    private static Map<Integer, TileEmpty> tileEmptyMap = createTilesEmpty();
+    private static final Map<Integer, TileEmpty> tileEmptyMap = createTilesEmpty();
 
 
-    //method that creates tiles and returns whether TileEmpty or TileFull objects
+    //method that creates tiles and returns either TileEmpty or TileFull objects
     //Uses the tilesEmptyMap to return the value for tileNr key
 
     public static Tile createTile(final int tileNr, final Piece piece){

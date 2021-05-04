@@ -18,7 +18,6 @@ public class DB {
             dbCon = DriverManager.getConnection(url, user, pw);
             System.out.println("Connected to DB");
             statement = dbCon.createStatement();
-
         }
         catch (SQLException e) {
             System.out.println(e.getMessage());
