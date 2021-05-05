@@ -7,7 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="file://$MODULE_DIR$/pgd" />
@@ -16,5 +16,30 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <ANNOTATIONS>
+          <root url="file://C:/Program Files (x86)/javafx-sdk-11.0.2" />
+        </ANNOTATIONS>
+        <CLASSES>
+          <root url="file://C:/Program Files (x86)/javafx-sdk-11.0.2" />
+          <root url="file://C:/Program Files (x86)/javafx-sdk-11.0.2" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="file://C:/Program Files (x86)/javafx-sdk-11.0.2" />
+        </JAVADOC>
+        <NATIVE>
+          <root url="file://C:/Program Files (x86)/javafx-sdk-11.0.2" />
+        </NATIVE>
+        <SOURCES>
+          <root url="file://C:/Program Files (x86)/javafx-sdk-11.0.2" />
+          <root url="file://C:/Program Files (x86)/javafx-sdk-11.0.2" />
+        </SOURCES>
+        <jarDirectory url="file://C:/Program Files (x86)/javafx-sdk-11.0.2" recursive="false" />
+        <jarDirectory url="file://C:/Program Files (x86)/javafx-sdk-11.0.2" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="javafx-sdk-11.0" level="application" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

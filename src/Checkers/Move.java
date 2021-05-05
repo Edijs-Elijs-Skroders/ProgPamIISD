@@ -1,4 +1,4 @@
-package com.company;
+package Checkers;
 
 public class Move {
 }
