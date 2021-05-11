@@ -11,32 +11,51 @@ public class Tile extends Rectangle {
     public static int row = 8;
     public static javafx.scene.paint.Color clr1 = Color.WHITE;  //manage the colors of the rectangles here
     public static javafx.scene.paint.Color clr2 = Color.rgb(74, 96, 134);
-    int tileNr; //final- can be set only once
-    private Piece piece;
+    public TileColor color;
+    Piece piece;
 
     Tile(TileColor color, int height, int width) {
         setWidth(size);
         setHeight(size);
         relocate(height * size, width * size);
 
-        if (color == TileColor.white) {
+        if (color == TileColor.WHITE) {
             setFill(clr1);
         } else {
             setFill(clr2);
         }
+        this.color = color;
     }
 
-    //Method to return the color
+    void setPiece(Piece piece){
+        this.piece = piece;
+    }
+    Piece getPiece(){
+        return piece;
+    }
+    TileColor getColor(){
+        return color;
+    }
+
+    //Method to calculate and return the appropriate color
     static TileColor calcColor(int sum) {
         if (sum % 2 == 0) {
-            return TileColor.white;
-        } else return TileColor.black;
+            return TileColor.WHITE;
+        } else return TileColor.BLACK;
+    }
+
+    boolean hasPiece(){
+        if(piece == null){
+            return false;
+        }
+        else return true;
     }
 
 
+    //TileColor, because javafx.scene.paint.Color problems
     public enum TileColor {
-        white,
-        black
+        WHITE,
+        BLACK
     }
 
 
