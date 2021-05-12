@@ -12,11 +12,13 @@ public class Tile extends Rectangle {
     public static javafx.scene.paint.Color clr1 = Color.WHITE;  //manage the colors of the rectangles here
     public static javafx.scene.paint.Color clr2 = Color.rgb(74, 96, 134);
     public TileColor color;
+    public int tileNr;
     Piece piece;
 
-    Tile(TileColor color, int height, int width) {
+    Tile(TileColor color, int height, int width, int tileNr) {
         setWidth(size);
         setHeight(size);
+        this.tileNr = tileNr;
         relocate(height * size, width * size);
 
         if (color == TileColor.WHITE) {
@@ -25,6 +27,10 @@ public class Tile extends Rectangle {
             setFill(clr2);
         }
         this.color = color;
+    }
+
+    public int getTileNr() {
+        return tileNr;
     }
 
     void setPiece(Piece piece){
@@ -50,40 +56,14 @@ public class Tile extends Rectangle {
         }
         else return true;
     }
-
+    void removePiece(){
+        this.piece = null;
+    }
 
     //TileColor, because javafx.scene.paint.Color problems
     public enum TileColor {
         WHITE,
         BLACK
     }
-
-
-//    //Creates a method and a map for all possible(64) TileEmpty objects
-//    private static Map<Integer, TileEmpty> createTilesEmpty(){
-//
-//        final Map<Integer, TileEmpty> tileEmptyMap =  new HashMap<>();
-//
-//        for(int a = 0; a < 64; a++){
-//            tileEmptyMap.put(a, new TileEmpty(a,column,row));
-//        }
-//        return tileEmptyMap;
-//    }
-//
-//    private static final Map<Integer, TileEmpty> tileEmptyMap = createTilesEmpty();
-//
-//
-//    //method that creates tiles and returns either TileEmpty or TileFull objects
-//    //Uses the tilesEmptyMap to return the value for tileNr key
-//
-//    public static Tile createTile(final int tileNr, final Piece piece){
-//        if(piece == null){
-//            return tileEmptyMap.get(tileNr);
-//        }
-//        else {
-//            return new TileFull(tileNr,piece);
-//        }
-//    }
-
 }
 
